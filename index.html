@@ -4,44 +4,69 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sNotes – Privacy Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #212a59;
-      --accent: #212a59;
-      --text: #1a1a2e;
-      --text-muted: #666680;
+      --navy: #212a59;
+      --navy-dark: #171e42;
+      --navy-light: #2d3a73;
+      --text: #1c1e2e;
+      --text-muted: #6b7099;
+      --text-light: #9499b8;
+      --bg: #f0f2fa;
       --card: #ffffff;
-      --bg: #f4f5fb;
-      --divider: #e0e0f0;
+      --divider: #e4e6f4;
+      --green: #16a34a;
+      --green-bg: #f0fdf4;
+      --green-border: #bbf7d0;
+      --amber: #b45309;
+      --amber-bg: #fffbeb;
+      --amber-border: #fde68a;
+      --blue-bg: #eff6ff;
+      --blue-border: #bfdbfe;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
-      min-height: 100vh;
+      line-height: 1.65;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
     }
 
+    /* ── Header ── */
     header {
-      background: var(--primary);
-      padding: 48px 24px 32px;
+      background: linear-gradient(160deg, var(--navy-dark) 0%, var(--navy) 55%, var(--navy-light) 100%);
+      padding: 56px 24px 44px;
       text-align: center;
-      border-bottom: 3px solid var(--accent);
-    }
-
-    header .app-icon {
-      width: 72px;
-      height: 72px;
-      border-radius: 18px;
-      display: inline-block;
-      margin-bottom: 16px;
+      position: relative;
       overflow: hidden;
     }
 
-    header .app-icon img {
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(255,255,255,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 22px;
+      overflow: hidden;
+      display: inline-block;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 0 0 3px rgba(255,255,255,0.12);
+    }
+
+    .header-icon img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -50,110 +75,309 @@
     header h1 {
       font-size: 2rem;
       font-weight: 700;
-      letter-spacing: 1px;
-      color: #ffffff;
+      color: #fff;
+      letter-spacing: -0.5px;
     }
 
-    header p {
-      color: #c5cae9;
+    .header-sub {
       margin-top: 6px;
-      font-size: 0.9rem;
-    }
-
-    main {
-      max-width: 760px;
-      margin: 40px auto;
-      padding: 0 20px 60px;
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 28px;
-      margin-bottom: 20px;
-      border: 1px solid var(--divider);
-      box-shadow: 0 2px 8px rgba(33, 42, 89, 0.07);
-    }
-
-    h2 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 14px;
+    }
+
+    .effective-date {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.38);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 3px 14px;
+    }
+
+    /* ── Layout ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 36px 20px 72px;
+    }
+
+    /* ── TL;DR Strip ── */
+    .tldr {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .tldr-item {
+      background: var(--card);
+      border: 1px solid var(--divider);
+      border-radius: 14px;
+      padding: 18px 14px;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(33,42,89,0.05);
+    }
+
+    .tldr-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      margin: 0 auto 10px;
     }
 
-    h2 .icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      background: var(--primary);
-      display: inline-flex;
+    .tldr-icon svg { width: 20px; height: 20px; }
+
+    .tldr-icon.green { background: var(--green-bg); color: var(--green); }
+    .tldr-icon.navy  { background: rgba(33,42,89,0.08); color: var(--navy); }
+    .tldr-icon.amber { background: var(--amber-bg); color: var(--amber); }
+
+    .tldr-item p {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 26px 28px;
+      margin-bottom: 16px;
+      border: 1px solid var(--divider);
+      box-shadow: 0 1px 6px rgba(33,42,89,0.06);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
       flex-shrink: 0;
     }
 
-    p { color: var(--text); margin-bottom: 10px; }
-    p:last-child { margin-bottom: 0; }
+    .section-icon svg { width: 18px; height: 18px; }
+    .section-icon.navy  { background: rgba(33,42,89,0.08); color: var(--navy); }
+    .section-icon.green { background: var(--green-bg); color: var(--green); }
+    .section-icon.amber { background: var(--amber-bg); color: var(--amber); }
+    .section-icon.blue  { background: var(--blue-bg); color: #2563eb; }
 
-    ul {
-      padding-left: 20px;
-      margin-top: 8px;
-    }
-
-    ul li {
-      margin-bottom: 6px;
+    h2 {
+      font-size: 1rem;
+      font-weight: 700;
       color: var(--text);
+      letter-spacing: -0.2px;
     }
 
-    .badge {
-      display: inline-block;
-      background: rgba(33, 42, 89, 0.08);
-      color: var(--primary);
-      border: 1px solid rgba(33, 42, 89, 0.2);
-      border-radius: 6px;
-      padding: 2px 10px;
-      font-size: 0.8rem;
+    .google-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
       font-weight: 600;
-      margin-bottom: 10px;
+      color: var(--amber);
+      background: var(--amber-bg);
+      border: 1px solid var(--amber-border);
+      border-radius: 20px;
+      padding: 2px 10px;
+      margin-bottom: 12px;
     }
 
-    .highlight {
-      background: rgba(33, 42, 89, 0.05);
-      border-left: 3px solid var(--primary);
-      border-radius: 0 8px 8px 0;
-      padding: 12px 16px;
-      margin-top: 10px;
+    p {
       color: var(--text-muted);
+      margin-bottom: 10px;
       font-size: 0.9rem;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    p:last-child { margin-bottom: 0; }
 
-    .effective-date {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      margin-bottom: 30px;
+    /* ── Check list ── */
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 4px;
     }
 
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 7px 0;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .check-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .check-list li:first-child { padding-top: 0; }
+
+    .check-list .check {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--green-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .check-list .check svg { width: 10px; height: 10px; color: var(--green); }
+
+    /* ── Bullet list ── */
+    .bullet-list {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 10px;
+    }
+
+    .bullet-list li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      padding: 5px 0 5px 16px;
+      position: relative;
+    }
+
+    .bullet-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--navy-light);
+      opacity: 0.4;
+    }
+
+    /* ── Permission rows ── */
+    .perm-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 4px 0 14px;
+    }
+
+    .perm-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+
+    .perm-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .perm-icon svg { width: 16px; height: 16px; }
+    .perm-icon.navy  { background: rgba(33,42,89,0.1); color: var(--navy); }
+    .perm-icon.green { background: var(--green-bg); color: var(--green); }
+    .perm-icon.amber { background: var(--amber-bg); color: var(--amber); }
+
+    .perm-text strong {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1px;
+    }
+
+    .perm-text span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ── Callout ── */
+    .callout {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--blue-bg);
+      border: 1px solid var(--blue-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-top: 12px;
+    }
+
+    .callout svg { width: 16px; height: 16px; color: #2563eb; flex-shrink: 0; margin-top: 1px; }
+
+    .callout p {
+      font-size: 0.83rem;
+      color: #1e40af;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ── Contact ── */
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      background: var(--bg);
+      border: 1px solid var(--divider);
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .contact-link:hover {
+      background: rgba(33,42,89,0.05);
+      border-color: rgba(33,42,89,0.25);
+      text-decoration: none;
+    }
+
+    .contact-link svg { width: 16px; height: 16px; }
+
+    a { color: var(--navy); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
+    a:hover { color: var(--navy-light); }
+
+    /* ── Footer ── */
     footer {
       text-align: center;
-      padding: 24px;
-      color: var(--text-muted);
-      font-size: 0.8rem;
+      padding: 28px 20px;
       border-top: 1px solid var(--divider);
+      font-size: 0.78rem;
+      color: var(--text-light);
     }
 
-    @media (max-width: 480px) {
-      header h1 { font-size: 1.5rem; }
+    /* ── Responsive ── */
+    @media (max-width: 520px) {
+      header h1 { font-size: 1.6rem; }
+      .header-icon { width: 68px; height: 68px; }
+      .tldr { grid-template-columns: 1fr; }
       .card { padding: 20px; }
     }
   </style>
@@ -161,106 +385,177 @@
 <body>
 
 <header>
-  <div class="app-icon"><img src="icon.png" alt="sNotes" /></div>
+  <div class="header-icon"><img src="icon.png" alt="sNotes icon" /></div>
   <h1>sNotes</h1>
-  <p>Privacy Policy</p>
+  <p class="header-sub">Privacy Policy</p>
+  <span class="effective-date">Effective May 7, 2026</span>
 </header>
 
 <main>
-  <p class="effective-date">Effective date: May 7, 2026</p>
 
-  <div class="card">
-    <h2><span class="icon">👋</span> Overview</h2>
-    <p>
-      sNotes is a simple, offline-first notes app. Your notes stay on your device.
-      We do not run any servers, and we do not sell or share your personal data.
-    </p>
-    <div class="highlight">
-      This policy explains what data is collected through the third-party services we use (Google AdMob and Firebase Analytics), and what permissions the app requests.
+  <!-- TL;DR -->
+  <div class="tldr">
+    <div class="tldr-item">
+      <div class="tldr-icon green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+      </div>
+      <p>Notes stay on your device</p>
+    </div>
+    <div class="tldr-item">
+      <div class="tldr-icon navy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <p>No servers, no data selling</p>
+    </div>
+    <div class="tldr-item">
+      <div class="tldr-icon amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <p>Ads &amp; analytics via Google</p>
     </div>
   </div>
 
+  <!-- Data on Device -->
   <div class="card">
-    <h2><span class="icon">📱</span> Data Stored on Your Device</h2>
-    <p>All notes, titles, and attached photos are stored <strong>locally on your device only</strong> using a private SQLite database. This data is:</p>
-    <ul>
-      <li>Never uploaded to any server</li>
-      <li>Never shared with any third party</li>
-      <li>Deleted when you uninstall the app</li>
-      <li>Eligible for Google's automatic device backup (optional, controlled by your Android settings)</li>
+    <div class="card-header">
+      <div class="section-icon green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
+      </div>
+      <h2>Your Data Stays on Your Device</h2>
+    </div>
+    <p>All notes, titles, and attached photos are stored <strong>locally</strong> in a private database on your device. We have no servers and no way to access your notes.</p>
+    <ul class="check-list">
+      <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span> Never uploaded to any server</li>
+      <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span> Never shared with third parties</li>
+      <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span> Deleted when you uninstall the app</li>
+      <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span> Note text is eligible for Google's automatic device backup — attached photos are excluded from backup</li>
     </ul>
   </div>
 
+  <!-- Permissions -->
   <div class="card">
-    <h2><span class="icon">📷</span> Permissions</h2>
-    <p>sNotes requests the following permissions:</p>
-    <ul>
-      <li><strong>Camera</strong> — to capture photos and attach them to notes</li>
-    </ul>
-    <p>Photos from your gallery are selected using the Android system photo picker, which requires no additional permissions.</p>
-    <div class="highlight">
-      Photos are saved to your device only. We do not upload, process, or access them for any other purpose.
+    <div class="card-header">
+      <div class="section-icon navy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <h2>Permissions</h2>
+    </div>
+    <div class="perm-list">
+      <div class="perm-row">
+        <div class="perm-icon navy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        </div>
+        <div class="perm-text">
+          <strong>Camera</strong>
+          <span>To capture photos and attach them to your notes.</span>
+        </div>
+      </div>
+      <div class="perm-row">
+        <div class="perm-icon green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="perm-text">
+          <strong>Internet</strong>
+          <span>To fetch daily inspirational quotes and display ads via Google AdMob.</span>
+        </div>
+      </div>
+      <div class="perm-row">
+        <div class="perm-icon amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="perm-text">
+          <strong>Storage <span style="font-weight:400;color:var(--text-light)">(Android 8 and below only)</span></strong>
+          <span>Required to save camera photos on older devices. Not requested on Android 9 and above.</span>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.83rem;">Gallery photos are selected via the <strong>Android system photo picker</strong> — no storage permission needed.</p>
+    <div class="callout">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p>Photos are saved to your device only. We never upload, process, or share them.</p>
     </div>
   </div>
 
+  <!-- Firebase Analytics -->
   <div class="card">
-    <h2><span class="icon">📊</span> Firebase Analytics</h2>
-    <span class="badge">Google Service</span>
-    <p>
-      sNotes uses <strong>Firebase Analytics</strong> by Google to understand how the app is used in general (e.g. session length, screen views). This helps us improve the app.
-    </p>
-    <p>Firebase Analytics may automatically collect:</p>
-    <ul>
+    <div class="card-header">
+      <div class="section-icon blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
+      <h2>Firebase Analytics</h2>
+    </div>
+    <span class="google-badge">
+      <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      Google Service
+    </span>
+    <p>We use <strong>Firebase Analytics</strong> to understand general usage patterns — things like session length and screen views — so we can improve the app over time.</p>
+    <p>It may collect:</p>
+    <ul class="bullet-list">
       <li>Device model and OS version</li>
       <li>App version</li>
-      <li>General location (country/region)</li>
+      <li>General location (country / region)</li>
       <li>Session duration and usage patterns</li>
     </ul>
-    <p>
-      No note content is ever sent to Firebase. For more information, see
-      <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.
-    </p>
+    <p>Your note content is never sent to Firebase. See <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a> for details.</p>
   </div>
 
+  <!-- AdMob -->
   <div class="card">
-    <h2><span class="icon">📢</span> Google AdMob (Advertising)</h2>
-    <span class="badge">Google Service</span>
-    <p>
-      sNotes displays ads provided by <strong>Google AdMob</strong> to support free access to the app. AdMob may collect:
-    </p>
-    <ul>
-      <li>Advertising ID (can be reset in your device settings)</li>
+    <div class="card-header">
+      <div class="section-icon amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      </div>
+      <h2>Google AdMob</h2>
+    </div>
+    <span class="google-badge">
+      <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      Google Service
+    </span>
+    <p>sNotes shows ads through <strong>Google AdMob</strong> to keep the app free. AdMob may collect:</p>
+    <ul class="bullet-list">
+      <li>Advertising ID (resettable in your device settings)</li>
       <li>Device information</li>
-      <li>General location (country/region)</li>
+      <li>General location (country / region)</li>
       <li>Ad interaction data (views, clicks)</li>
     </ul>
-    <p>
-      This data is used to show relevant ads. You can opt out of personalized ads in your device settings under <strong>Privacy → Ads</strong>.
-      For more information, see
-      <a href="https://policies.google.com/technologies/ads" target="_blank">Google's Advertising Policies</a>.
-    </p>
+    <p>You can opt out of personalised ads under <strong>Settings → Privacy → Ads</strong> on your device. See <a href="https://policies.google.com/technologies/ads" target="_blank">Google's Advertising Policies</a>.</p>
   </div>
 
+  <!-- Children -->
   <div class="card">
-    <h2><span class="icon">👶</span> Children's Privacy</h2>
-    <p>
-      sNotes is not directed at children under the age of 13. We do not knowingly collect personal information from children.
-      If you believe a child has provided personal information through the app, please contact us.
-    </p>
+    <div class="card-header">
+      <div class="section-icon navy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h2>Children's Privacy</h2>
+    </div>
+    <p>sNotes is not directed at children under 13. We do not knowingly collect personal information from children. If you believe a child has used the app and shared personal information, please contact us and we will address it promptly.</p>
   </div>
 
+  <!-- Changes -->
   <div class="card">
-    <h2><span class="icon">🔄</span> Changes to This Policy</h2>
-    <p>
-      We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date.
-      We encourage you to review this page periodically.
-    </p>
+    <div class="card-header">
+      <div class="section-icon navy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      </div>
+      <h2>Changes to This Policy</h2>
+    </div>
+    <p>We may update this policy from time to time. Any changes will be reflected on this page with a new effective date. We encourage you to check back periodically.</p>
   </div>
 
+  <!-- Contact -->
   <div class="card">
-    <h2><span class="icon">✉️</span> Contact Us</h2>
-    <p>If you have any questions about this Privacy Policy, please contact us:</p>
-    <p>📧 <a href="mailto:ssefrani@gmail.com">ssefrani@gmail.com</a></p>
+    <div class="card-header">
+      <div class="section-icon green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <h2>Contact Us</h2>
+    </div>
+    <p>Questions or concerns about this policy? We'd love to hear from you.</p>
+    <a href="mailto:ssefrani@gmail.com" class="contact-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      ssefrani@gmail.com
+    </a>
   </div>
 
 </main>
